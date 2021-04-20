@@ -10,16 +10,22 @@ const gotGames = () => {
     .then(data => gamerList(data))
 }
 
-const gamerList = (gamez) => {
+const gamerList = (gamer) => {
 
     let div = document.createElement('div')
     div.className = 'game'
 
     let heading = document.createElement('h2')
-    heading.innerText = gamez.name
+    heading.innerText = gamer.name
 
     let img = document.createElement('img')
-    img.src = gamez.image
+    img.src = gamer.image
 
-    div.append(heading, img)
+    let p = document.createElement('p')
+    p.innerText = gamer.developer
+
+    div.append(heading, img, p)
+
+    let gameDiv = document.querySelector('#game-collection')
+    gameDiv.appendChild(div)
 }
