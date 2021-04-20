@@ -3,61 +3,71 @@
         {
             "id": 1,
             "name": "Maplestory",
-            "image": "",
+            "image": "https://orangemushroom.files.wordpress.com/2015/12/heroes-of-maple.jpg",
+            "developer": "Nexon",
             "comments": ""
         },
         {
             "id": 2,
             "name": "PlayerUnknown BattleGrounds (PUBG)",
-            "image": "",
+            "image": "https://www.pubg.com/wp-content/uploads/2021/01/2.-PGI.S-Keyart-1.png",
+            "developer": "PUBG Corporation",
             "comments": ""
         },
         {
             "id": 3,
             "name": "COD: Warzone",
-            "image": "",
+            "image": "https://image.api.playstation.com/vulcan/img/rnd/202010/2321/QXm5Ob9MLo2YPVF1Xg4oBaCr.jpg?w=440",
+            "developer": "Infinity Ward",
             "comments": ""
         },
         {
             "id": 4,
             "name": "Black Desert Online",
-            "image": "",
+            "image": "https://static-cdn.jtvnw.net/ttv-boxart/Black%20Desert%20Online%20Remastered.jpg",
+            "developer": "Pearl Abyss",
             "comments": ""
         },
         {
             "id": 5,
             "name": "Apex Legends",
-            "image": "",
+            "image": "https://media.contentapi.ea.com/content/dam/apex-legends/images/2019/01/apex-featured-image-16x9.jpg.adapt.crop191x100.1200w.jpg",
+            "developer": "Respawn Entertainment",
             "comments": ""
         },
         {
             "id": 6,
             "name": "Minecraft",
-            "image": "",
+            "image": "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png",
+            "developer": "Mojang Studios",
             "comments": ""
         },
         {
-            "id": 71,
+            "id": 7,
             "name": "Fortnite",
-            "image": "",
+            "image": "https://cdn2.unrealengine.com/battle-pass-chapter-2-season-6-1920x1080-dc8eb73dc494.jpg",
+            "developer": "Epic Games",
             "comments": ""
         },
         {
             "id": 8,
             "name": "League of Legends",
-            "image": "",
+            "image": "https://cdn1.dotesports.com/wp-content/uploads/2019/09/12195522/league-of-legends.jpg",
+            "developer": "Riot Games",
             "comments": ""
         },
         {
             "id": 9,
             "name": "Valorant",
-            "image": "",
+            "image": "https://www.riotgames.com/darkroom/1440/d0807e131a84f2e42c7a303bda672789:3d02afa7e0bfb75f645d97467765b24c/valorant-offwhitelaunch-keyart.jpg",
+            "developer": "Riot Games",
             "comments": ""
         },
         {
             "id": 10,
             "name": "World of Warcraft",
-            "image": "",
+            "image": "https://i.gadgets360cdn.com/large/world-of-warcraft_1515269153610.jpg",
+            "developer": "Blizzard Entertainment",
             "comments": ""
         }
     ]
