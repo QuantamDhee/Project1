@@ -23,7 +23,7 @@ const gamerList = (gamer) => {
     img.src = gamer.image
 
     let p = document.createElement('p')
-    p.innerText = gamer.developer
+    p.innerText = `DEVELOPER: ${gamer.developer}`
 
     div.append(heading, img, p)
 
