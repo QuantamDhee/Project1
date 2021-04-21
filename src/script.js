@@ -19,6 +19,7 @@ const gamerList = (gamer) => {
     heading.innerText = gamer.name
 
     let img = document.createElement('img')
+    img.className = 'game-img'
     img.src = gamer.image
 
     let p = document.createElement('p')
