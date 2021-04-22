@@ -6,3 +6,8 @@ body {
     width: 350px;
     height: auto;
   }
+
+  .small-img{
+    width: 18px;
+    height: 18px;
+  }

@@ -105,27 +105,3 @@ const submitRev = event => {
 
 }
 
-// reviewForm.addEventListener("submit", addReview)
-
-
-// const appendReview = function(input){
-// 	let ul = document.getElementById = champReviews
-// 	let li = document.createElement("li")
-// 	let deleteBtn = document.createElement(`button`)
-// 	deleteBtn.innerText = "x"
-// 	li.innerText = input
-// 	li.appendChild(deleteBtn)
-// 	ul.appendChild(li)
-// 	li.id = input
-// 	deleteBtn.addEventListener(`click`,()=> removeReview(ul, li))
-// }
-// const removeReview = function(ul, li){
-// 	ul.removeChild(li)
-	
-// }
-
-// function addReview(event){
-// 	event.preventDefault()
-// 	console.log(event.target.reviewForm.value)
-// 	appendReview(event.target.reviewForm.value)
-// }
