@@ -41,11 +41,6 @@ const viewOne = event =>{
 // initialize()
 
 
-
-
-
-
-
 // const viewAGame = () =>{
 //     return fetch(url + `/${id}`)
 //     .then(r => r.json())
