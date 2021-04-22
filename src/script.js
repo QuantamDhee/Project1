@@ -2,6 +2,7 @@ const url = "http://localhost:3000/games"
 const list = document.querySelector("#list")
 
 document.addEventListener('DOMContentLoaded', event => {
+    // form.addEventListener('submit', submitRev)
     gotGames()
 })
 
@@ -24,40 +25,21 @@ const lister = game => {
 
 const viewOne = event =>{
     const id = event.target.dataset.gameId
-    console.log(id)
+    // console.log(id)
     fetch(url + `/${id}`)
     .then(r => r.json())
-    .then(game => gamerView(game))
+    .then(game => {
+        gamerView(game)
+    })
 }
 
-// const getAGame = id =>{
-//     return fetch(url + `/${id}`)
-//     .then(r => r.json())
-// }
+let selectGame = {}
 
-// function initialize(){
-//     listedGames()
-// }
-// initialize()
-
-
-// const viewAGame = () =>{
-//     return fetch(url + `/${id}`)
-//     .then(r => r.json())
-// }
-
-// const someGame = (data) =>{
-//     data.forEach(gamer => gamerList(gamer))
-// }
-
-// const gamerList = gamer =>{
-//     const li = document.createElement('li')
-//     li.textContent = gamer.name
-//     // li.dataset.gamerId = gamer.id
-//     list.appendChild(li)
-// }
-
+//once game is clicked it shows this format of heading, img, p, ul
 const gamerView = (gamer) => {
+
+    selectGame = gamer
+
     let gameDiv = document.querySelector('#game-collection')
     gameDiv.innerHTML = ""
 
@@ -76,9 +58,24 @@ const gamerView = (gamer) => {
 
     let ul = document.createElement('ul')
 
+    let form = document.createElement('form')
+    form.dataset.gameId = gamer.id
 
-    div.append(heading, img, p, ul)
+    let input = document.createElement('input')
+    input.name = 'comment' 
+    input.type = 'text'
+
+    let submitInput = document.createElement('input')
+    submitInput.type = 'submit'
+    submitInput.value = 'Submit'
+
+    form.addEventListener('submit', submitRev)
+
+    form.append(input, submitInput)
+    div.append(heading, img, p, ul, form)
+
     
+    // lists the comments/reviews into an unordered list
     gamer.comments.forEach(comment => {
         let li = document.createElement('li')
         li.innerText = comment 
@@ -87,5 +84,48 @@ const gamerView = (gamer) => {
     gameDiv.appendChild(div)
 }
 
+const submitRev = event => {
+    event.preventDefault()
+   const id = event.target.dataset.gameId
+    let revObj = {
+        comments: [...selectGame.comments, event.target.comment.value] 
+    }
+
+    let configObj ={
+        method: 'PATCH',
+        headers:{
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(revObj)
+    }
+
+    fetch(url + `/${id}`, configObj)
+    .then(r => r.json())
+    .then(game => gamerView(game))
+
+}
+
+// reviewForm.addEventListener("submit", addReview)
 
 
+// const appendReview = function(input){
+// 	let ul = document.getElementById = champReviews
+// 	let li = document.createElement("li")
+// 	let deleteBtn = document.createElement(`button`)
+// 	deleteBtn.innerText = "x"
+// 	li.innerText = input
+// 	li.appendChild(deleteBtn)
+// 	ul.appendChild(li)
+// 	li.id = input
+// 	deleteBtn.addEventListener(`click`,()=> removeReview(ul, li))
+// }
+// const removeReview = function(ul, li){
+// 	ul.removeChild(li)
+	
+// }
+
+// function addReview(event){
+// 	event.preventDefault()
+// 	console.log(event.target.reviewForm.value)
+// 	appendReview(event.target.reviewForm.value)
+// }
