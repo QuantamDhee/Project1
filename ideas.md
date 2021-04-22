@@ -14,3 +14,7 @@
 
 
 ## pictures of games will be on loading screen, once clicked all info will follow to "game" page which allows user to create, update, and delete their reviews
+
+<br></br>
+
+## json-server --watch db.json
