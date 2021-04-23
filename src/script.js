@@ -33,6 +33,8 @@ const viewOne = event =>{
     })
 }
 
+
+
 let selectGame = {}
 
 //once game is clicked it shows this format of heading, img, p, ul
@@ -61,15 +63,28 @@ const gamerView = (gamer) => {
     let form = document.createElement('form')
     form.dataset.gameId = gamer.id
 
+    // let updateForm = document.createElement('form')
+    // updateForm.dataset.gameId = gamer.id
+
     let input = document.createElement('input')
     input.name = 'comment' 
     input.type = 'text'
+
+    // let upInput = document.createElement('input')
+    // upInput.name = 'comment'
+    // upInput.type = 'text'
 
     let submitInput = document.createElement('input')
     submitInput.type = 'submit'
     submitInput.value = 'Submit'
 
+    // let updateInput = document.createElement('input')
+    // updateInput.type = 'update'
+    // updateInput.value = 'Update'
+    
+
     form.addEventListener('submit', submitRev)
+    // form.addEventListener('update', updateRev)
 
     form.append(input, submitInput)
     div.append(heading, img, p, ul, form)
@@ -77,11 +92,19 @@ const gamerView = (gamer) => {
     
     // lists the comments/reviews into an unordered list
     gamer.comments.forEach(comment => {
+        let button = document.createElement('button')
+        button.innerText = 'ew'
         let li = document.createElement('li')
         li.innerText = comment 
-        // li.dataset.gameId = comment
+        li.dataset.gameId = comment
+        li.append(button)
         ul.appendChild(li)
+        // li.addEventListener('click', updateRev)
+        button.addEventListener('click', () => ul.removeChild(li))
+        // () => ul.removeChild(li)
     })
+
+
     gameDiv.appendChild(div)
 }
 
@@ -91,6 +114,9 @@ const submitRev = event => {
     let revObj = {
         comments: [...selectGame.comments, event.target.comment.value] 
     }
+
+    // games.comments.filter(game => game.comments)
+    // console.log(submitRev)
 
     let configObj ={
         method: 'PATCH',
@@ -105,39 +131,47 @@ const submitRev = event => {
     .then(game => gamerView(game))
 }
 
-
-// // const filteredComments = game.comments.filter(comments => comments.length)
-
-// function handleLike(e){
-//     console.log(e.target.tagName)
-//     // uses event delegation to detect origin/target of event
-//     // conditional so that we only execute code when the event target was a button
-//     if(e.target.tagName ==="BUTTON"){
-//         // gets the right book id from the event target dataset; need the id for the PATCH request
-//         const id = e.target.dataset.bookId
-//         console.log(id)
-//         // conditional to check whether the button should add or remove a liker/user
-//         if (e.target.innerText == 'LIKE') {
-//             getOneBook(id)
-//             .then(book => {
-//                 // adds the current user to the request body
-//                 const body = {
-//                     users: [...book.users, currentUser]
-//                 }
-//                 updateLikes(body, id)
-//             })
-//         } else {
-//             getOneBook(id)
-//             .then(book => {
-//                 // removes the currentUser from the users array
-//                 const filteredUsers = book.users.filter(user => user.id != currentUser.id)
-//                 const body = {
-//                     users: filteredUsers
-//                 }
-//                 updateLikes(body, id)
-//             })
-//         }
+// const updateRev = event => {
+//     console.log(event.target.tagName)
+//     if(event.target.tagName == "BUTTON"){
+//         // const id = event.target.dataset.gameId
+//         console.log('object')
 //     }
+//     // event.preventDefault()
+//     // const id = event.target.dataset.gameId
+//     // let newReview = parseInt(event.target.previousElementSibling.innerText) - 1
+//     // let revObj = {
+//     //     comments: newReview
+//     // }
+    
+//     // let configObj ={
+//     //     method: 'PATCH',
+//     //     headers:{
+//     //         "Content-Type": "application/json",
+//     //     },
+//     //     body: JSON.stringify(revObj)
+//     // }
+
+//     // fetch(url + `/${id}`, configObj)
+//     // .then(r => r.json())
+//     // .then(game => {event.target.previousElementSibling.innerText = `${newReview}`})
+    
 
 // }
+const something = function(event, li) {
+    event.preventDefault()
+
+    let button = document.createElement('button')
+    button.innerText = 'no'
+    
+    li.append(button)
+    button.addEventListener('click', () => ul.removeChild(li))
+}
+
+// const updateRev = games.comments.filter(game => game.comments)
+//  console.log(updateRev)
+
+// const filteredComments = games.comments.filter(game => game.comments)
+
+
 

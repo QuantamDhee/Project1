@@ -21,7 +21,8 @@
         "another comment",
         "Terrible",
         "Really Clunky",
-        "This game is old"
+        "This game is old",
+        ""
       ]
     },
     {
@@ -62,7 +63,8 @@
       "developer": "Mojang Studios",
       "comments": [
         "comment!",
-        "another comment"
+        "another comment",
+        ""
       ]
     },
     {
