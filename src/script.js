@@ -79,6 +79,7 @@ const gamerView = (gamer) => {
     gamer.comments.forEach(comment => {
         let li = document.createElement('li')
         li.innerText = comment 
+        // li.dataset.gameId = comment
         ul.appendChild(li)
     })
     gameDiv.appendChild(div)
@@ -102,6 +103,41 @@ const submitRev = event => {
     fetch(url + `/${id}`, configObj)
     .then(r => r.json())
     .then(game => gamerView(game))
-
 }
+
+
+// // const filteredComments = game.comments.filter(comments => comments.length)
+
+// function handleLike(e){
+//     console.log(e.target.tagName)
+//     // uses event delegation to detect origin/target of event
+//     // conditional so that we only execute code when the event target was a button
+//     if(e.target.tagName ==="BUTTON"){
+//         // gets the right book id from the event target dataset; need the id for the PATCH request
+//         const id = e.target.dataset.bookId
+//         console.log(id)
+//         // conditional to check whether the button should add or remove a liker/user
+//         if (e.target.innerText == 'LIKE') {
+//             getOneBook(id)
+//             .then(book => {
+//                 // adds the current user to the request body
+//                 const body = {
+//                     users: [...book.users, currentUser]
+//                 }
+//                 updateLikes(body, id)
+//             })
+//         } else {
+//             getOneBook(id)
+//             .then(book => {
+//                 // removes the currentUser from the users array
+//                 const filteredUsers = book.users.filter(user => user.id != currentUser.id)
+//                 const body = {
+//                     users: filteredUsers
+//                 }
+//                 updateLikes(body, id)
+//             })
+//         }
+//     }
+
+// }
 
