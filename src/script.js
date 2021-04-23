@@ -94,14 +94,15 @@ const gamerView = (gamer) => {
     gamer.comments.forEach(comment => {
         let button = document.createElement('button')
         button.innerText = 'ew'
+        button.data = gamer.id
         let li = document.createElement('li')
         li.innerText = comment 
         li.dataset.gameId = comment
-        li.append(button)
-        ul.appendChild(li)
+        // li.append(button)
+        ul.append(li, button)
         // li.addEventListener('click', updateRev)
-        button.addEventListener('click', () => ul.removeChild(li))
-        // () => ul.removeChild(li)
+        button.addEventListener('click', event => updateRev(event, gamer))
+        // button.addEventListener('click', () => ul.removeChild(li))
     })
 
 
@@ -131,47 +132,33 @@ const submitRev = event => {
     .then(game => gamerView(game))
 }
 
-// const updateRev = event => {
-//     console.log(event.target.tagName)
-//     if(event.target.tagName == "BUTTON"){
-//         // const id = event.target.dataset.gameId
-//         console.log('object')
-//     }
-//     // event.preventDefault()
-//     // const id = event.target.dataset.gameId
-//     // let newReview = parseInt(event.target.previousElementSibling.innerText) - 1
-//     // let revObj = {
-//     //     comments: newReview
-//     // }
-    
-//     // let configObj ={
-//     //     method: 'PATCH',
-//     //     headers:{
-//     //         "Content-Type": "application/json",
-//     //     },
-//     //     body: JSON.stringify(revObj)
-//     // }
 
-//     // fetch(url + `/${id}`, configObj)
-//     // .then(r => r.json())
-//     // .then(game => {event.target.previousElementSibling.innerText = `${newReview}`})
-    
-
-// }
-const something = function(event, li) {
-    event.preventDefault()
-
-    let button = document.createElement('button')
-    button.innerText = 'no'
-    
-    li.append(button)
-    button.addEventListener('click', () => ul.removeChild(li))
+const updateRev = (event, gamer) => {
+    const id = event.target.data
+    let filterComment = gamer.comments.filter(comments => comments != event.target.previousElementSibling.textContent)
+    console.log(filterComment)
+    // let filterComment = [...selectGame.comments, event.target.comment.value].filter
+    let revObj = {
+        comments: filterComment
+    }
+    let configObj ={
+        method: 'PATCH',
+        headers:{
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(revObj)
+    }
+    fetch(url + `/${id}`, configObj)
+    .then(r => r.json())
+    .then(game => gamerView(game))
 }
 
-// const updateRev = games.comments.filter(game => game.comments)
-//  console.log(updateRev)
+// const something = function(event, li) {
+//     event.preventDefault()
 
-// const filteredComments = games.comments.filter(game => game.comments)
-
-
-
+//     let button = document.createElement('button')
+//     button.innerText = 'no'
+    
+//     li.append(button)
+//     button.addEventListener('click', () => ul.removeChild(li))
+// }
