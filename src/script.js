@@ -91,6 +91,7 @@ const gamerView = (gamer) => {
 
     
     // lists the comments/reviews into an unordered list
+    
     gamer.comments.forEach(comment => {
         let button = document.createElement('button')
         button.innerText = 'ew'
@@ -136,7 +137,7 @@ const submitRev = event => {
 const updateRev = (event, gamer) => {
     const id = event.target.data
     let filterComment = gamer.comments.filter(comments => comments != event.target.previousElementSibling.textContent)
-    console.log(filterComment)
+    // console.log(filterComment)
     // let filterComment = [...selectGame.comments, event.target.comment.value].filter
     let revObj = {
         comments: filterComment
